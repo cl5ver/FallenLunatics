@@ -31,7 +31,6 @@ public class Main {
 		ImagePanel newImage = new ImagePanel(filepath);
 		mainFrame.add(newImage);
 		mainFrame.pack();
-		mainFrame.setSize(newImage.getWidth(), newImage.getHeight());
 
 		mainFrame.setVisible(true);
 		

@@ -11,11 +11,13 @@ import javax.swing.JPanel;
 @SuppressWarnings("serial")
 public class ImagePanel extends JPanel {
 
-private BufferedImage img = null;
+	private BufferedImage img = null;
 	
 	public ImagePanel(String filepath) {
+		super();
 		try {
 			img = ImageIO.read(new File(filepath));
+			setSize(img.getWidth(), img.getHeight());
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
