@@ -13,36 +13,20 @@ import javax.swing.JPanel;
 public class ImagePanel extends JPanel {
 
 	private BufferedImage img = null;
-	
-	public ImagePanel(String filepath) {
+
+	public ImagePanel(BufferedImage image) {
 		super();
-		try {
-			img = ImageIO.read(new File(filepath));
-			Dimension imgDim = new Dimension();
-			imgDim.setSize(img.getWidth(), img.getHeight());
-			this.setPreferredSize(imgDim);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		img = image;
+		
+		Dimension imgDim = new Dimension();
+		imgDim.setSize(img.getWidth(), img.getHeight());
+		this.setPreferredSize(imgDim);
 	}
-	
-	public ImagePanel(File file) {
-		super();
-		try {
-			img = ImageIO.read(file);
-			Dimension imgDim = new Dimension();
-			imgDim.setSize(img.getWidth(), img.getHeight());
-			this.setPreferredSize(imgDim);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-	
+
 	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponents(g);
-		g.drawImage(img,  0, 0, null);
+		g.drawImage(img, 0, 0, null);
 	}
-
 
 }
