@@ -1,5 +1,6 @@
 package fallen.lunatics.photo;
 
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -17,7 +18,9 @@ public class ImagePanel extends JPanel {
 		super();
 		try {
 			img = ImageIO.read(new File(filepath));
-			setSize(img.getWidth(), img.getHeight());
+			Dimension imgDim = new Dimension();
+			imgDim.setSize(img.getWidth(), img.getHeight());
+			this.setPreferredSize(imgDim);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
