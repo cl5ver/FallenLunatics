@@ -8,11 +8,11 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
-public class JImagePanel extends JPanel {
+public class ImagePanel extends JPanel {
 
 private BufferedImage img = null;
 	
-	public JImagePanel(String filepath){
+	public ImagePanel(String filepath){
 		try {
 			img = ImageIO.read(new File(filepath));
 		} catch (IOException e) {
