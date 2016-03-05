@@ -2,7 +2,9 @@ package fallen.lunatics.photo;
 
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.File;
 
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 
 
@@ -17,21 +19,22 @@ public class Main {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		JFrame mainFrame = new JFrame("Fallen Lunatics Photoshop");
-		//JFileChooser fileChooser = new JFileChooser();
+		JFileChooser fileChooser = new JFileChooser();
+		File imgFile;
 		
 		//openButton = new JButton();
 		
-		//int returnVal = fileChooser.showOpenDialog(arg0);
+		int returnVal = fileChooser.showOpenDialog(mainFrame);
+		if(returnVal != fileChooser.APPROVE_OPTION) {
+			System.out.println(String.format("File chooser Error with %d", returnVal));
+			System.exit(0);
+		}
+		imgFile = fileChooser.getSelectedFile();
 		
 		
-		
-		String filepath = "1.jpg";
-		
-		
-		ImagePanel newImage = new ImagePanel(filepath);
+		ImagePanel newImage = new ImagePanel(imgFile);
 		mainFrame.add(newImage);
 		mainFrame.pack();
-
 		mainFrame.setVisible(true);
 		
 		

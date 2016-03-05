@@ -26,6 +26,18 @@ public class ImagePanel extends JPanel {
 		}
 	}
 	
+	public ImagePanel(File file) {
+		super();
+		try {
+			img = ImageIO.read(file);
+			Dimension imgDim = new Dimension();
+			imgDim.setSize(img.getWidth(), img.getHeight());
+			this.setPreferredSize(imgDim);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponents(g);
